@@ -1452,18 +1452,9 @@ describe('<CourseOutline />', () => {
     const [subsection] = section.childInfo.children;
     const [unit] = subsection.childInfo.children;
     // Enrollment Track Groups : Audit
-    const newGroupAccess = { 50: [1] };
-    const isVisibleToStaffOnly = true;
 
     axiosMock
-      .onPost(getCourseItemApiUrl(unit.id), {
-        publish: 'republish',
-        metadata: {
-          visible_to_staff_only: isVisibleToStaffOnly,
-          discussion_enabled: false,
-          group_access: newGroupAccess,
-        },
-      })
+      .onPost(getCourseItemApiUrl(unit.id))
       .reply(200, { dummy: 'value' });
 
     axiosMock

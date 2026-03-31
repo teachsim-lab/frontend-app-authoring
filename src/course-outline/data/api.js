@@ -314,14 +314,23 @@ export async function configureCourseSubsection(
  * @param {number} prereqMinCompletion
  * @returns {Promise<Object>}
  */
-export async function configureCourseUnit(unitId, isVisibleToStaffOnly, groupAccess, discussionEnabled, isPrereq, prereqUsageKey, prereqMinScore, prereqMinCompletion) {
+export async function configureCourseUnit(
+  unitId,
+  isVisibleToStaffOnly,
+  groupAccess,
+  discussionEnabled,
+  isPrereq,
+  prereqUsageKey,
+  prereqMinScore,
+  prereqMinCompletion,
+) {
   const { data } = await getAuthenticatedHttpClient()
     .post(getCourseItemApiUrl(unitId), {
       publish: 'republish',
-      isPrereq: isPrereq,
-      prereqUsageKey: prereqUsageKey,
-      prereqMinScore: prereqMinScore,
-      prereqMinCompletion: prereqMinCompletion,
+      isPrereq,
+      prereqUsageKey,
+      prereqMinScore,
+      prereqMinCompletion,
       metadata: {
         // The backend expects metadata.visible_to_staff_only to either true or null
         visible_to_staff_only: isVisibleToStaffOnly ? true : null,

@@ -162,7 +162,7 @@ const UnitTab = ({
           values={values}
           setFieldValue={setFieldValue}
           prereqs={prereqs}
-          isUnit={true}
+          isUnit
         />
       )}
     </>

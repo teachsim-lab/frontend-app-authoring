@@ -325,11 +325,30 @@ export function configureCourseSubsectionQuery(
   };
 }
 
-export function configureCourseUnitQuery(itemId, sectionId, isVisibleToStaffOnly, groupAccess, discussionEnabled, isPrereq, prereqUsageKey, prereqMinScore, prereqMinCompletion) {
+export function configureCourseUnitQuery(
+  itemId,
+  sectionId,
+  isVisibleToStaffOnly,
+  groupAccess,
+  discussionEnabled,
+  isPrereq,
+  prereqUsageKey,
+  prereqMinScore,
+  prereqMinCompletion,
+) {
   return async (dispatch) => {
     dispatch(configureCourseItemQuery(
       sectionId,
-      async () => configureCourseUnit(itemId, isVisibleToStaffOnly, groupAccess, discussionEnabled, isPrereq, prereqUsageKey, prereqMinScore, prereqMinCompletion),
+      async () => configureCourseUnit(
+        itemId,
+        isVisibleToStaffOnly,
+        groupAccess,
+        discussionEnabled,
+        isPrereq,
+        prereqUsageKey,
+        prereqMinScore,
+        prereqMinCompletion,
+      ),
     ));
   };
 }

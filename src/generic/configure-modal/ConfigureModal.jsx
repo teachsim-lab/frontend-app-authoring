@@ -178,8 +178,8 @@ const ConfigureModal = ({
           groupAccess[partitionId] = data.selectedGroups.map(g => parseInt(g, 10));
         }
         onConfigureSubmit(
-          data.isVisibleToStaffOnly, 
-          groupAccess, 
+          data.isVisibleToStaffOnly,
+          groupAccess,
           data.discussionEnabled,
           data.isPrereq,
           data.prereqUsageKey,
