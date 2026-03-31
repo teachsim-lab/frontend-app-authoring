@@ -9,6 +9,7 @@ import classNames from 'classnames';
 
 import { COURSE_BLOCK_NAMES } from '../../constants';
 import messages from './messages';
+import PrereqSettings from './PrereqSettings';
 
 const UnitTab = ({
   isXBlockComponent,
@@ -17,6 +18,7 @@ const UnitTab = ({
   setFieldValue,
   showWarning,
   userPartitionInfo,
+  prereqs,
 }) => {
   const intl = useIntl();
   const {
@@ -155,6 +157,14 @@ const UnitTab = ({
           <p className="x-small font-weight-bold"><FormattedMessage {...messages.discussionEnabledDescription} /></p>
         </>
       )}
+      {!isXBlockComponent && (
+        <PrereqSettings
+          values={values}
+          setFieldValue={setFieldValue}
+          prereqs={prereqs}
+          isUnit={true}
+        />
+      )}
     </>
   );
 };
@@ -162,6 +172,7 @@ const UnitTab = ({
 UnitTab.defaultProps = {
   isXBlockComponent: false,
   category: undefined,
+  prereqs: [],
 };
 
 UnitTab.propTypes = {
@@ -178,6 +189,10 @@ UnitTab.propTypes = {
       PropTypes.arrayOf(PropTypes.string),
       PropTypes.array,
     ]),
+    isPrereq: PropTypes.bool,
+    prereqUsageKey: PropTypes.string,
+    prereqMinScore: PropTypes.number,
+    prereqMinCompletion: PropTypes.number,
   }).isRequired,
   setFieldValue: PropTypes.func.isRequired,
   showWarning: PropTypes.bool.isRequired,
@@ -196,6 +211,10 @@ UnitTab.propTypes = {
     selectedGroupsLabel: PropTypes.string,
     selectedPartitionIndex: PropTypes.number.isRequired,
   }).isRequired,
+  prereqs: PropTypes.arrayOf(PropTypes.shape({
+    blockUsageKey: PropTypes.string.isRequired,
+    blockDisplayName: PropTypes.string.isRequired,
+  })),
 };
 
 export default injectIntl(UnitTab);

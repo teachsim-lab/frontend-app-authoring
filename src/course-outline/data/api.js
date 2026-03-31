@@ -307,17 +307,30 @@ export async function configureCourseSubsection(
  * @param {string} unitId
  * @param {boolean} isVisibleToStaffOnly
  * @param {object} groupAccess
+ * @param {boolean} discussionEnabled
+ * @param {boolean} isPrereq
+ * @param {string} prereqUsageKey
+ * @param {number} prereqMinScore
+ * @param {number} prereqMinCompletion
  * @returns {Promise<Object>}
  */
-export async function configureCourseUnit(unitId, isVisibleToStaffOnly, groupAccess, discussionEnabled) {
+export async function configureCourseUnit(unitId, isVisibleToStaffOnly, groupAccess, discussionEnabled, isPrereq, prereqUsageKey, prereqMinScore, prereqMinCompletion) {
   const { data } = await getAuthenticatedHttpClient()
     .post(getCourseItemApiUrl(unitId), {
       publish: 'republish',
+      isPrereq: isPrereq,
+      prereqUsageKey: prereqUsageKey,
+      prereqMinScore: prereqMinScore,
+      prereqMinCompletion: prereqMinCompletion,
       metadata: {
         // The backend expects metadata.visible_to_staff_only to either true or null
         visible_to_staff_only: isVisibleToStaffOnly ? true : null,
         group_access: groupAccess,
         discussion_enabled: discussionEnabled,
+        is_prereq: isPrereq,
+        prereq_usage_key: prereqUsageKey,
+        prereq_min_score: prereqMinScore,
+        prereq_min_completion: prereqMinCompletion,
       },
     });
 

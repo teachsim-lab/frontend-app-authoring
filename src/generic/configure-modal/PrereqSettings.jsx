@@ -10,6 +10,7 @@ const PrereqSettings = ({
   values,
   setFieldValue,
   prereqs,
+  isUnit = false,
 }) => {
   const intl = useIntl();
   const {
@@ -32,7 +33,9 @@ const PrereqSettings = ({
       <h5 className="mt-4 text-gray-700"><FormattedMessage {...messages.limitAccessTitle} /></h5>
       <hr />
       <Form>
-        <Form.Text><FormattedMessage {...messages.limitAccessDescription} /></Form.Text>
+        <Form.Text>
+          <FormattedMessage {...(isUnit ? messages.unitLimitAccessDescription : messages.limitAccessDescription)} />
+        </Form.Text>
         <Form.Group controlId="prereqForm.select">
           <Form.Label>
             {intl.formatMessage(messages.prerequisiteSelectLabel)}
@@ -90,7 +93,7 @@ const PrereqSettings = ({
       <h5 className="mt-4 text-gray-700"><FormattedMessage {...messages.prereqTitle} /></h5>
       <hr />
       <Form.Checkbox checked={isPrereq} onChange={handleCheckboxChange}>
-        <FormattedMessage {...messages.prereqCheckboxLabel} />
+        <FormattedMessage {...(isUnit ? messages.unitPrereqCheckboxLabel : messages.prereqCheckboxLabel)} />
       </Form.Checkbox>
     </>
   );
@@ -98,6 +101,7 @@ const PrereqSettings = ({
 
 PrereqSettings.defaultProps = {
   prereqs: [],
+  isUnit: false,
 };
 
 PrereqSettings.propTypes = {
@@ -112,6 +116,7 @@ PrereqSettings.propTypes = {
     blockDisplayName: PropTypes.string.isRequired,
   })),
   setFieldValue: PropTypes.func.isRequired,
+  isUnit: PropTypes.bool,
 };
 
 export default injectIntl(PrereqSettings);

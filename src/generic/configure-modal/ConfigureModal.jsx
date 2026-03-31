@@ -177,7 +177,15 @@ const ConfigureModal = ({
           const partitionId = userPartitionInfo.selectablePartitions[data.selectedPartitionIndex].id;
           groupAccess[partitionId] = data.selectedGroups.map(g => parseInt(g, 10));
         }
-        onConfigureSubmit(data.isVisibleToStaffOnly, groupAccess, data.discussionEnabled);
+        onConfigureSubmit(
+          data.isVisibleToStaffOnly, 
+          groupAccess, 
+          data.discussionEnabled,
+          data.isPrereq,
+          data.prereqUsageKey,
+          data.prereqMinScore,
+          data.prereqMinCompletion,
+        );
         break;
       default:
         break;
@@ -259,6 +267,7 @@ const ConfigureModal = ({
             setFieldValue={setFieldValue}
             showWarning={visibilityState === VisibilityTypes.STAFF_ONLY && !ancestorHasStaffLock}
             userPartitionInfo={userPartitionInfo}
+            prereqs={prereqs}
           />
         );
       default:
