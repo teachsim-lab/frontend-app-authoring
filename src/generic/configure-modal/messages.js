@@ -251,6 +251,10 @@ const messages = defineMessages({
     id: 'course-authoring.course-outline.configure-modal.advanced-tab.prereqCheckboxLabel',
     defaultMessage: 'Make this subsection available as a prerequisite to other content',
   },
+  unitPrereqCheckboxLabel: {
+    id: 'course-authoring.course-outline.configure-modal.unit-tab.prereqCheckboxLabel',
+    defaultMessage: 'Make this unit available as a prerequisite to other content',
+  },
   limitAccessTitle: {
     id: 'course-authoring.course-outline.configure-modal.advanced-tab.limitAccessTitle',
     defaultMessage: 'Limit access',
@@ -258,6 +262,10 @@ const messages = defineMessages({
   limitAccessDescription: {
     id: 'course-authoring.course-outline.configure-modal.advanced-tab.limitAccessDescription',
     defaultMessage: 'Select a prerequisite subsection and enter a minimum score percentage and minimum completion percentage to limit access to this subsection. Allowed values are 0-100',
+  },
+  unitLimitAccessDescription: {
+    id: 'course-authoring.course-outline.configure-modal.unit-tab.limitAccessDescription',
+    defaultMessage: 'Select a prerequisite unit and enter a minimum score percentage and minimum completion percentage to limit access to this unit. Allowed values are 0-100',
   },
   noPrerequisiteOption: {
     id: 'course-authoring.course-outline.configure-modal.advanced-tab.noPrerequisiteOption',
