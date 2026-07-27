@@ -116,6 +116,11 @@ const messages = defineMessages({
     defaultMessage: 'Checklists',
     description: 'Link to Studio Checklists page',
   },
+  'header.links.raterCertificationAnalytics': {
+    id: 'header.links.raterCertificationAnalytics',
+    defaultMessage: 'Rater Certification Analytics',
+    description: 'Link to the Rater Certification Analytics page',
+  },
   'header.user.menu.studio': {
     id: 'header.user.menu.studio',
     defaultMessage: 'Studio Home',

@@ -26,6 +26,7 @@ import { DECODED_ROUTES } from './constants';
 import CourseChecklist from './course-checklist';
 import GroupConfigurations from './group-configurations';
 import { CourseLibraries } from './course-libraries';
+import RaterCertificationAnalyticsPage from './rater-certification-analytics';
 import { IframeProvider } from './generic/hooks/context/iFrameContext';
 
 /**
@@ -132,6 +133,10 @@ const CourseAuthoringRoutes = () => {
         <Route
           path="checklists"
           element={<PageWrap><CourseChecklist courseId={courseId} /></PageWrap>}
+        />
+        <Route
+          path="rater-certification-analytics"
+          element={<PageWrap><RaterCertificationAnalyticsPage courseId={courseId} /></PageWrap>}
         />
         <Route
           path="certificates"

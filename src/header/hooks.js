@@ -111,6 +111,10 @@ export const useToolsMenuItems = courseId => {
       href: `/course/${courseId}/checklists`,
       title: intl.formatMessage(messages['header.links.checklists']),
     },
+    {
+      href: `/course/${courseId}/rater-certification-analytics`,
+      title: intl.formatMessage(messages['header.links.raterCertificationAnalytics']),
+    },
     ...(waffleFlags.enableCourseOptimizer ? [{
       href: `/course/${courseId}/optimizer`,
       title: intl.formatMessage(messages['header.links.optimizer']),

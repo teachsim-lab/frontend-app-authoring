@@ -100,6 +100,7 @@ describe('header utils', () => {
         'Export Course',
         'Export Tags',
         'Checklists',
+        'Rater Certification Analytics',
       ]);
     });
     it('when tags disabled should not include export tags option', () => {
@@ -112,6 +113,7 @@ describe('header utils', () => {
         'Import',
         'Export Course',
         'Checklists',
+        'Rater Certification Analytics',
       ]);
     });
 
